@@ -31,7 +31,8 @@ export class ProductService {
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+    const product = this.productRepository.update(id,updateProductDto)
+    return product;
   }
 
   remove(id: number) {

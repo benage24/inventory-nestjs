@@ -10,7 +10,14 @@ export class ProductController {
 
   @Post()
   create(@Body() createProductDto: CreateProductDto) {
-    return this.productService.create(createProductDto);
+    const product=this.productService.create(createProductDto);
+    if(!product){
+      throw new Error('Error in creating product');
+
+    }else{
+      return 'product has been successfully created';
+    }
+   
   }
 
   @Get()
